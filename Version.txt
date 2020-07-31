@@ -1,0 +1,39 @@
+2.7 - 27/3/2018
+      Nodal and Vertex coupled. 
+      Wound size as a function of nx and ny.
+      Rest length changes (gamma) on vertex or nodal elements
+      Incremental and non-incremental non-homogensous boundary conditions 
+      Default values for all parameters
+
+3.0  Computation of projected areas
+     Added Delay
+     Profiler
+     Strain Based elasticity
+
+3.1  Different stiffness at the spring branch (k0) and active branch (k)
+     Output of resting length
+
+3.5 1/8/2018 Use of input file InputData.m.
+
+3.7. 26/10/2010
+     non-hexagonal cells are permitted.
+     Cell-Centres from experimental allowed (Set.CellCentres=file with cell centres coordinates)
+     Remodelling at each increment allowed, with graded Delaunay if necessary (Set.RemodelDelta)
+     Penalisation of volume is with respect RELATIVE volume.
+3.9  Remodelling with projection of relaxed vertices at wound edge is corrected.
+4.0  Added free z coordinate on basal.
+4.1. Added option Set.yRelaxationZ, in order to relax Z coordinates of all top vertices.
+4.2. Quadriples size of tissue. SetDefault.RelaxationYZ=false.
+4.3. Time intensity factor for contractilty at wound edge Set.TimeCTWE, Set.TimeCBWE, Set.TimeCLWE.
+     Set.EpsCTWE, Set.EpsCLWE and Set.EpsCBWE are applied not proportionally, since time eovlution vector modulate it.
+4.4  Non-hexagonal cells
+4.5  Different top and contractility
+     Non-constant contracitlity through variables Set.StartTimeEcLat, Set.PeakTimeEcLat, 
+Set.EndTimeEcLat.
+4.6  Non-constant time-step, use of variable Set.t replacing Set.tend and Set.dt.
+4.7  Amended step-halving. Cells the become external are internalised during Remodelling, so that external nodes do not change.      Orientation of wound ring is always counterclockwise (bug).
+     Amended correction of DelaunayR in order to avoid cahttering (based on perimeter, not cirumradius)
+     Use Set.RemodelExternal for avoiding rermodelling of externalnodes.
+4.8  - Adding propulsion forces acting on bottom nodes, 
+     - Adding viscos friction with bottom vertices  
+4.9  Ammended sorting of externalnodes when domains are joined by single node.

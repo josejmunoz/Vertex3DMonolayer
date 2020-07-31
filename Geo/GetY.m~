@@ -1,0 +1,38 @@
+function [nTrianglesB,Y,nTrianglesT]=GetY(Cb,Ct,X)
+% Retrieves set of vertices (triangles) given nodal Bottom and Top triangulation
+% Cb and Ct
+% Assumes baricentric positions of vertices, and returns first bottom vertices, and then bottom vertices.
+% INPUT:
+% Cb(i,:) = nodes in triangle i of top layer
+% Ct(i,:) = nodes in triangle i of top layer
+% X(i,:)  = nodal coordinates of node i
+% OUTPUT:
+% nTrianglesB = number of bottom triangles
+% nTrianglesT = number of top triangles
+% Y(i,:)      = coordintes of vertex i
+if nargout>2
+    %%
+    nTrianglesT=size(Ct,1);
+    nTrianglesB=size(Cb,1);
+    Y=zeros(nTrianglesT+nTrianglesB,3); % Top and bottom
+    for i=1:nTrianglesB
+        Y(i,:)=sum(X(Cb(i,:),:))/3; % Bottom vertices
+    end
+    for i=1:nTrianglesT
+        I=i+nTrianglesB;
+        Y(I,:)=sum(X(Ct(i,:),:))/3; % Top services
+    end 
+else 
+    %%
+    nTrianglesB=size(Cb,1);
+    Y=zeros(nTrianglesB*2,3); % Top and bottom
+    fprintf('Size
+    for i=1:nTrianglesB
+        Y(i,:)=sum(X(Cb(i,:),:))/3; % Bottom vertices
+        Y(i+nTrianglesB,:)=sum(X(Ct(i,:),:))/3; % Top services
+    end
+end
+ 
+    
+    
+end%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
